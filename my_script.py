@@ -13,18 +13,22 @@ app_id = os.environ.get("my_app_id", "OOPS")
 
 selected_recipes = []
 
+#recipe_select_label = tkinter.Label(text="Select a recipe you would like to add from the dropdown:")
+#recipe_select = tkinter.Listbox()
+# nah, these show up way too early if defined up here...
+
 def search_button_click():
     ##code to run search
     #search_value = entry_value.get()
     #request_url = f"https://api.edamam.com/search?q={search_value}&app_id={app_id}&app_key={app_key}"
     #response = requests.get(request_url)
     #parsed_response = json.loads(response.text)
-#
+    #
     #recipe_list = []
     #recipes = parsed_response["hits"]
     #for recipe in recipes:
     #    recipe_list.append(recipe["recipe"]["label"])
-
+    #
     #add recipes to ListBox
     recipe_select_label = tkinter.Label(text="Select a recipe you would like to add from the dropdown:")
     recipe_select = tkinter.Listbox()
@@ -39,7 +43,7 @@ def search_button_click():
     recipe_select.pack()
 
 def add_recipe_click():
-    selected_recipes.append(recipe_select.get(recipe_select.curselection())) #> NameError: name 'recipe_select' is not defined
+    selected_recipes.append(recipe_select.get(recipe_select.curselection())) #> tkinter.TclError: bad listbox index "": must be active, anchor, end, @x,y, or a number
 
 #Initialize GUI
 
@@ -61,4 +65,10 @@ search_label.pack()
 search.pack()
 search_button.pack()
 add_button.pack()
+
+recipe_select_label = tkinter.Label(text="Select a recipe you would like to add from the dropdown:")
+recipe_select = tkinter.Listbox()
+
 window.mainloop()
+
+print("THE WINDOW HAS BEEN CLOSED")
