@@ -18,13 +18,14 @@ def search():
     print("DROPDOWN ELEMENTS HAVE BEEN PACKED")
 
 def add_recipe():
-    #selected_recipes.append(recipe_select.get(recipe_select.curselection())) #> tkinter.TclError: bad listbox index "": must be active, anchor, end, @x,y, or a number
-    #print("CUR SEL:", recipe_select.curselection())
-    #recipe = recipe_select.get(recipe_select.curselection())
-    recipe = "MY RECIPE"
+    #print(recipe_select.curselection()) #> (2,)
+    #print(recipe_select.get(recipe_select.curselection())) #> 'Soup'
+    recipe = recipe_select.get(recipe_select.curselection())
+    #recipe = "MY RECIPE"
+    print("ADDING RECIPE:", recipe)
 
     selected_recipes.append(recipe)
-    print("ADDED RECIPE. COUNT:", len(selected_recipes))
+    print("RECIPES:", selected_recipes)
 
 if __name__ == "__main__":
 
@@ -45,6 +46,8 @@ if __name__ == "__main__":
     recipe_select = tkinter.Listbox()
     recipe_select_btn = tkinter.Button(text="Add Recipe", command=add_recipe)
     print("DROPDOWN ELEMENTS HAVE BEEN INITIALIZED")
+
+    print("THE USER IS NOW IN CONTROL...")
 
     window.mainloop()
     print("THE WINDOW HAS BEEN CLOSED")
