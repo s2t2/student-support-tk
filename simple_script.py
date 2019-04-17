@@ -3,25 +3,28 @@ import tkinter
 
 selected_recipes = []
 
-#def search2(my_dropdown, my_dropdown_label):
-#    my_dropdown_label.pack()
-#    my_dropdown.insert(1, "Salad")
-#    my_dropdown.insert(2, "Sandwich")
-#    my_dropdown.insert(3, "Soup")
-#    my_dropdown.pack()
-
 def search():
+    print("SEARCH TERM:", search_box.get())
+
+    # TODO: clear previous options
     recipe_select.insert(1, "Salad")
     recipe_select.insert(2, "Sandwich")
     recipe_select.insert(3, "Soup")
+    print("DROPDOWN OPTIONS HAVE BEEN POPULATED...")
+
     recipe_select_lbl.pack()
     recipe_select.pack()
     recipe_select_btn.pack()
-    print("SEARCHING AND POPULATING DROPDOWN OPTIONS...")
+    print("DROPDOWN ELEMENTS HAVE BEEN PACKED")
 
-def add_recipe_click():
+def add_recipe():
     #selected_recipes.append(recipe_select.get(recipe_select.curselection())) #> tkinter.TclError: bad listbox index "": must be active, anchor, end, @x,y, or a number
-    selected_recipes.append("MY RECIPE")
+    #print("CUR SEL:", recipe_select.curselection())
+    #recipe = recipe_select.get(recipe_select.curselection())
+    recipe = "MY RECIPE"
+
+    selected_recipes.append(recipe)
+    print("ADDED RECIPE. COUNT:", len(selected_recipes))
 
 if __name__ == "__main__":
 
@@ -40,10 +43,8 @@ if __name__ == "__main__":
 
     recipe_select_lbl = tkinter.Label(text="Select a recipe you would like to add from the dropdown:")
     recipe_select = tkinter.Listbox()
-    recipe_select_btn = tkinter.Button(text="Add Recipe", command=add_recipe_click)
+    recipe_select_btn = tkinter.Button(text="Add Recipe", command=add_recipe)
     print("DROPDOWN ELEMENTS HAVE BEEN INITIALIZED")
-
-    #recipe_select_btn.pack()
 
     window.mainloop()
     print("THE WINDOW HAS BEEN CLOSED")
